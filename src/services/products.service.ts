@@ -13,4 +13,9 @@ export default class ProductService {
     const newProduct = await this.model.create(name, amount);
     return newProduct;
   }
+
+  public async getAll() {
+    const products = await this.model.getAll();
+    return products;
+  }
 }
