@@ -5,7 +5,7 @@ const options: SignOptions = {
   expiresIn: '2d',
 };
 
-const secret = 'o mercado de de TI está desaquecendo';
+const secret = 'o mercado de TI está desaquecendo';
 
 export default function createToken(username: string, classe: string, level:number) {
   return jwt.sign({ username, classe, level }, secret, options);
