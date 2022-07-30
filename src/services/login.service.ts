@@ -11,13 +11,6 @@ export default class LoginService {
   }
 
   public async login(user: ILogin): Promise<IResponse> {
-    // const schema = Joi.object({
-    //   username: Joi.string().required(),
-    //   password: Joi.string().required(),
-    // });
-
-    // const validate = schema.validate(user);
-
     if (!user.username) {
       return { code: 400, message: { message: '"username" is required' } };
     }
