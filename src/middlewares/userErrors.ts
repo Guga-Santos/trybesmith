@@ -2,10 +2,10 @@ import { NextFunction, Request, Response } from 'express';
 import Joi from 'joi';
 
 export function UserErrors(req:Request, res:Response, next:NextFunction) {
-  const { username, classe, level, password } = req.body;
+  const { username, classe, password } = req.body;
   if (!username) return res.status(400).json({ message: '"username" is required' });
   if (!classe) return res.status(400).json({ message: '"classe" is required' });
-  if (!level && level !== 0) return res.status(400).json({ message: '"level" is required' });
+ 
   if (!password) return res.status(400).json({ message: '"password" is required' });
   next();
 }
@@ -17,6 +17,12 @@ export function UserJoiValidation(req:Request, res:Response, next:NextFunction) 
     level: Joi.number().min(1).required(),
     password: Joi.string().min(8).required(),
   });
+
+  if (!req.body.level && req.body.level !== 0) {
+    return res.status(400)
+      .json({ message: '"level" is required' });
+  }
+  //   Que beleza, hein!
 
   const validate = schema.validate(req.body);
 
