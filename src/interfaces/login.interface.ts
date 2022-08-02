@@ -3,7 +3,13 @@ export interface ILogin {
   password: string;
 }
 
+export interface IMessage {
+  message?: string;
+  token?: string;
+}
+
 export interface IResponse {
-  code: number;
-  message: object;
+  code: number ; 
+  message: IMessage;
+  response?: unknown;
 }

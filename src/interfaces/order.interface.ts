@@ -3,3 +3,7 @@ export default interface IOrder {
   userId: number,
   productsIds: number[],
 }
+
+export interface INewOrder {
+  productsIds: number[][];
+}
