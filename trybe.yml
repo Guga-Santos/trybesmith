@@ -1,5 +1,0 @@
-ignore_files:
-  - .eslintignore
-  - .eslintrc.json
-  - jest.config.js
-  - tests
